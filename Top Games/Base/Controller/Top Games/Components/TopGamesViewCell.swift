@@ -11,8 +11,8 @@ import UIKit
 struct GameDTO {
 //    var id = 0
     var name = ""
-//    var image: UIImage?
-//    var identifier = ""
+    var image: UIImage?
+    var identifier = ""
 //    var favorite = false
 }
 
@@ -21,7 +21,15 @@ class TopGamesViewCell: UICollectionViewCell {
     @IBOutlet weak var gameImg: UIImageView!
     @IBOutlet weak var gameNameLbl: UILabel!
     
+    var identifier: String?
+    
     func fillCell(dto: GameDTO) {
         gameNameLbl.text = dto.name
+        gameImg.image = dto.image
+        identifier = dto.identifier
+    }
+    
+    func setImage(with image: UIImage?) {
+        gameImg.image = image
     }
 }

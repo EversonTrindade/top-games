@@ -39,10 +39,23 @@ class TopGamesViewController: UICollectionViewController, LoadContent {
             }
         }
     }
+    
+    func didLoadImage(identifier: String) {
+        DispatchQueue.main.async {
+            guard let collection = self.collectionView else {
+                return
+            }
+            for cell in collection.visibleCells {
+                if let gameCell = cell as? TopGamesViewCell, gameCell.identifier == identifier {
+                    gameCell.setImage(with: self.viewModel.imageFromCache(identifier: identifier))
+                }
+            }
+        }
+    }
 }
 
 // MARK: UITableViewDelegate/DataSource
-extension TopGamesViewController {
+extension TopGamesViewController: UICollectionViewDelegateFlowLayout{
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -59,7 +72,20 @@ extension TopGamesViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let gameCell = cell as? TopGamesViewCell {
+            gameCell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return viewModel.sizeForItems(with: view.frame.size.width, height: view.frame.size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return viewModel.minimumInteritemSpacingForSectionAt()
     }
 }
