@@ -28,7 +28,7 @@ class GameRequest: Requestable {
         
         var request = URLRequest(url: url)
         request.addValue(BaseAPI.client_id, forHTTPHeaderField: "client-id")
-        
+                
         URLSession.shared.dataTask(with: request) { data, response, error  in
             if let error = error {
                 completion(nil, CustomError(error: error.localizedDescription as? Error))

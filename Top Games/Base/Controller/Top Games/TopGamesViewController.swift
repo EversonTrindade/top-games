@@ -26,13 +26,13 @@ class TopGamesViewController: UICollectionViewController, LoadContent {
     // MARK: LoadContent
     func loadContent() {
         showLoader()
-        viewModel.getGames()
+        viewModel.getGames(offset: 0)
     }
     
     func didLoadContent(error: String?) {
         dismissLoader()
         if let _ = error {
-            
+            showDefaultAlert(message: "Can not load movies. Try later", completeBlock: nil)
         } else {
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
@@ -69,6 +69,10 @@ extension TopGamesViewController: UICollectionViewDelegateFlowLayout{
             return UICollectionViewCell()
         }
         cell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
+        if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
+            showLoader()
+            viewModel.getGames(offset: 1)
+        }
         return cell
     }
     

@@ -14,13 +14,14 @@ protocol LoadContent: class {
 }
 
 protocol TopGamesViewModelPresentable: class {
-    func getGames()
+    func getGames(offset: Int)
     func numberOfSections() -> Int
     func numberOfItemsInSection() -> Int
     func gameDTO(row: Int) -> GameDTO
     func sizeForItems(with width: CGFloat, height: CGFloat) -> CGSize
     func minimumInteritemSpacingForSectionAt() -> CGFloat
     func imageFromCache(identifier: String) -> UIImage?
+    var canLoad: Bool { get }
 }
 
 class TopGamesViewModel: TopGamesViewModelPresentable {
@@ -29,7 +30,10 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     weak var delegate: LoadContent?
     var interactor: TopGamesInteractorPresentable?
     var games = [Game]()
+    var temporaryGames = [Game]()
     private var cache = NSCache<NSString, UIImage>()
+    private var offset = 0
+    var canLoad = true
     
     // MARK: Init
     init(delegate: LoadContent?, interactor: TopGamesInteractorPresentable = TopGamesInteractor()) {
@@ -40,15 +44,25 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     init() { }
     
     // MARK: Functions
-    func getGames() {
-        interactor?.getGames(offset: 0, completion: { (result, error) in
-            guard let games = result else {
-                self.delegate?.didLoadContent(error: error)
-                return
-            }
-            self.games = games
-            self.delegate?.didLoadContent(error: nil)
-        })
+    func getGames(offset: Int) {
+        if canLoad {
+            self.offset = self.offset + offset
+            canLoad = false
+            interactor?.getGames(offset: self.games.count, completion: { (result, error) in
+                guard let games = result else {
+                    self.delegate?.didLoadContent(error: error)
+                    return
+                }
+                self.games = self.games + games
+//                self.temporaryGames = games
+                self.canLoad = true
+//                if offset != 0 {
+//                    self.temporaryGames.remove(at: 0)
+//                }
+//                self.games = self.games + self.temporaryGames
+                self.delegate?.didLoadContent(error: nil)
+            })
+        }
     }
     
     func getImage(urlString: String) -> UIImage {
