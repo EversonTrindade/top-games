@@ -6,8 +6,21 @@
 //  Copyright © 2018 Everson Trindade. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
+protocol Mappable: Codable, Equatable {
+    init?(data: Data)
+}
+
+protocol Requestable: class {
+    associatedtype DataType
+    func request(completion: @escaping (_ result: DataType?, _ error: CustomError?) -> Void)
+}
 
 struct BaseAPI {
-    private let base = ""
+    static let client_id = "85wkm4h30lmzldarfokxx7pu0v0c7d"
+    fileprivate let base = "https://api.twitch.tv/kraken/"
+    var games: String {
+        return base + "games/top"
+    }
 }
