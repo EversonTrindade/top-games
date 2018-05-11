@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4043A1D620A62B96004FE148 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D520A62B96004FE148 /* DetailViewController.swift */; };
+		4043A1D820A62BA8004FE148 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D720A62BA8004FE148 /* DetailViewModel.swift */; };
 		40ED7D2B20A24E09006D7168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED7D2A20A24E09006D7168 /* AppDelegate.swift */; };
 		40ED7D3020A24E09006D7168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40ED7D2E20A24E09006D7168 /* Main.storyboard */; };
 		40ED7D3220A24E0B006D7168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40ED7D3120A24E0B006D7168 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4043A1D520A62B96004FE148 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4043A1D720A62BA8004FE148 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		40ED7D2720A24E09006D7168 /* Top Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top Games.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40ED7D2A20A24E09006D7168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40ED7D2F20A24E09006D7168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4043A1D220A62B4D004FE148 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4043A1D520A62B96004FE148 /* DetailViewController.swift */,
+				4043A1D720A62BA8004FE148 /* DetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		40ED7D1E20A24E08006D7168 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 		40ED7D4D20A251D9006D7168 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4043A1D220A62B4D004FE148 /* Detail */,
 				40ED7D5120A252E4006D7168 /* Top Games */,
 				40ED7D5D20A25B50006D7168 /* Favorities */,
 			);
@@ -341,8 +355,10 @@
 				40ED7D5920A258F6006D7168 /* TopGamesViewController.swift in Sources */,
 				40ED7D6C20A3691F006D7168 /* GameRequest.swift in Sources */,
 				40ED7D7D20A3DD88006D7168 /* Array+Extension.swift in Sources */,
+				4043A1D620A62B96004FE148 /* DetailViewController.swift in Sources */,
 				40ED7D7B20A3CF37006D7168 /* TopGamesViewCell.swift in Sources */,
 				40ED7D7620A3A121006D7168 /* Games.swift in Sources */,
+				4043A1D820A62BA8004FE148 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top Games/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,6 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top Games/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "547674041.911142"
+            timestampString = "547771115.9732471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "getGames(offset:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "547674041.911593"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "getGames(offset:)"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "updateSearchResults(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "547674041.9119591"
+            timestampString = "547771115.9747109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "updateSearchResults(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,61 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "547674041.912148"
+            timestampString = "547771115.975777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "loadContent()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Top Games/Base/Networking/Request/GameRequest.swift"
-            timestampString = "547674041.9123729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "request(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Top_Games.GameRequest.request(completion: (Swift.Optional&lt;Top_Games.Games&gt;, Swift.Optional&lt;Top_Games.CustomError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Top Games"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Top%20Games/Top%20Games/Top%20Games/Base/Networking/Request/GameRequest.swift"
-                  timestampString = "547668080.331436"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1298">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Top_Games.GameRequest.request(completion: (Swift.Optional&lt;Top_Games.Games&gt;, Swift.Optional&lt;Top_Games.CustomError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Top Games"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Top%20Games/Top%20Games/Top%20Games/Base/Networking/Request/GameRequest.swift"
-                  timestampString = "547668080.335444"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

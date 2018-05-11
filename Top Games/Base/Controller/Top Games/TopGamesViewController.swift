@@ -12,10 +12,14 @@ fileprivate struct CellIdentifier {
     static let gameIdentifier = "TopGamesViewCell"
 }
 
-class TopGamesViewController: UICollectionViewController, LoadContent {
-    
+class TopGamesViewController: UIViewController, LoadContent {
+
     // MARK: Properties
     lazy var viewModel: TopGamesViewModelPresentable = TopGamesViewModel(delegate: self)
+
+    // MARK: IBOutlet
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: ViewController life cycle
     override func viewDidLoad() {
@@ -23,10 +27,18 @@ class TopGamesViewController: UICollectionViewController, LoadContent {
         loadContent()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let detailViewcontroller = segue.destination as? DetailViewController, let dto = sender as? GameDetailDTO {
+                detailViewcontroller.fill(with: dto)
+            }
+        }
+    }
+    
     // MARK: LoadContent
     func loadContent() {
         showLoader()
-        viewModel.getGames(offset: 0)
+        viewModel.getGames()
     }
     
     func didLoadContent(error: String?) {
@@ -52,37 +64,44 @@ class TopGamesViewController: UICollectionViewController, LoadContent {
             }
         }
     }
+    
+    func didTapOnSearchToReload() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 // MARK: UITableViewDelegate/DataSource
-extension TopGamesViewController: UICollectionViewDelegateFlowLayout{
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.numberOfSections()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItemsInSection()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.gameIdentifier, for: indexPath) as? TopGamesViewCell else {
             return UICollectionViewCell()
         }
         cell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
         if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
             showLoader()
-            viewModel.getGames(offset: 1)
+            viewModel.getGames()
         }
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let gameCell = cell as? TopGamesViewCell {
             gameCell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: viewModel.getGameDetailDTO(row: indexPath.row))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -91,5 +110,12 @@ extension TopGamesViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return viewModel.minimumInteritemSpacingForSectionAt()
+    }
+}
+
+// MARK: Search Bar
+extension TopGamesViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.updateSearchResults(for: searchController)
     }
 }

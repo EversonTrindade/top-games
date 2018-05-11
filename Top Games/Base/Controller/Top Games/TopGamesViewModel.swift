@@ -11,17 +11,22 @@ import UIKit
 protocol LoadContent: class {
     func didLoadContent(error: String?)
     func didLoadImage(identifier: String)
+    func didTapOnSearchToReload()
 }
 
 protocol TopGamesViewModelPresentable: class {
-    func getGames(offset: Int)
+    
+    var canLoad: Bool { get }
+    
+    func getGames()
     func numberOfSections() -> Int
     func numberOfItemsInSection() -> Int
     func gameDTO(row: Int) -> GameDTO
     func sizeForItems(with width: CGFloat, height: CGFloat) -> CGSize
     func minimumInteritemSpacingForSectionAt() -> CGFloat
     func imageFromCache(identifier: String) -> UIImage?
-    var canLoad: Bool { get }
+    func updateSearchResults(for searchController: UISearchController)
+    func getGameDetailDTO(row: Int) -> GameDetailDTO
 }
 
 class TopGamesViewModel: TopGamesViewModelPresentable {
@@ -30,10 +35,10 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     weak var delegate: LoadContent?
     var interactor: TopGamesInteractorPresentable?
     var games = [Game]()
-    var temporaryGames = [Game]()
+    var filteredGames = [Game]()
     private var cache = NSCache<NSString, UIImage>()
-    private var offset = 0
     var canLoad = true
+    var searchActive = false
     
     // MARK: Init
     init(delegate: LoadContent?, interactor: TopGamesInteractorPresentable = TopGamesInteractor()) {
@@ -41,12 +46,9 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         self.interactor = interactor
     }
     
-    init() { }
-    
     // MARK: Functions
-    func getGames(offset: Int) {
+    func getGames() {
         if canLoad {
-            self.offset = self.offset + offset
             canLoad = false
             interactor?.getGames(offset: self.games.count, completion: { (result, error) in
                 guard let games = result else {
@@ -54,12 +56,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
                     return
                 }
                 self.games = self.games + games
-//                self.temporaryGames = games
                 self.canLoad = true
-//                if offset != 0 {
-//                    self.temporaryGames.remove(at: 0)
-//                }
-//                self.games = self.games + self.temporaryGames
                 self.delegate?.didLoadContent(error: nil)
             })
         }
@@ -102,16 +99,46 @@ extension TopGamesViewModel {
     }
     
     func numberOfItemsInSection() -> Int {
-        return games.count
+        return searchActive ? filteredGames.count : games.count
+//        return games.count
     }
     
     func gameDTO(row: Int) -> GameDTO {
-        guard let game = games.object(index: row) else {
-            return GameDTO()
+        if searchActive {
+            guard let game = filteredGames.object(index: row) else {
+                return GameDTO()
+            }
+            return GameDTO(name: game.game.name,
+                           image: getImage(urlString: game.game.box.medium),
+                           identifier: game.game.box.medium)
+
+        } else {
+            guard let game = games.object(index: row) else {
+                return GameDTO()
+            }
+            return GameDTO(name: game.game.name,
+                           image: getImage(urlString: game.game.box.medium),
+                           identifier: game.game.box.medium)
+
         }
-        return GameDTO(name: game.game.name,
-                       image: getImage(urlString: game.game.box.medium),
-                       identifier: game.game.box.medium)
+    }
+    
+    func getGameDetailDTO(row: Int) -> GameDetailDTO {
+        if searchActive {
+            guard let game = filteredGames.object(index: row) else {
+                return GameDetailDTO()
+            }
+            return GameDetailDTO(name: game.game.name,
+                                 image: game.game.box.large,
+                                 views: game.viewers)
+        } else {
+            guard let game = games.object(index: row) else {
+                return GameDetailDTO()
+            }
+            return GameDetailDTO(name: game.game.name,
+                                 image: game.game.box.large,
+                                 views: game.viewers)
+        }
     }
     
     func sizeForItems(with width: CGFloat, height: CGFloat) -> CGSize {
@@ -121,5 +148,17 @@ extension TopGamesViewModel {
     func minimumInteritemSpacingForSectionAt() -> CGFloat {
         return 8.0
     }
+}
 
+// MARK Search Bar
+extension TopGamesViewModel {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            self.filteredGames = searchText.isEmpty ? games : games.filter({ (item) -> Bool in
+                return item.game.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            })
+            
+            delegate?.didTapOnSearchToReload()
+        }
+    }
 }

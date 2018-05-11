@@ -18,6 +18,7 @@ struct Games: Decodable {
 
 struct Game: Decodable {
     var viewers: Int
+    var channels: Int
     var game: Detail
 }
 
