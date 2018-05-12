@@ -29,7 +29,7 @@ extension UIViewController {
     }
     
     func showDefaultAlert(message: String, completeBlock: ((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: "Aviso", message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: completeBlock)
         alertController.addAction(action)
         DispatchQueue.main.async {

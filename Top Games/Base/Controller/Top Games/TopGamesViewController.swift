@@ -35,10 +35,19 @@ class TopGamesViewController: UIViewController, LoadContent {
         }
     }
     
+    func checkConnectionAndGetGames() {
+        if Reachability.isConnectedToNetwork() {
+            viewModel.getGames()
+        } else {
+            showDefaultAlert(message: "No connetion!", completeBlock: nil)
+            dismissLoader()
+        }
+    }
+    
     // MARK: LoadContent
     func loadContent() {
         showLoader()
-        viewModel.getGames()
+        checkConnectionAndGetGames()
     }
     
     func didLoadContent(error: String?) {
@@ -89,7 +98,7 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
         cell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
         if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
             showLoader()
-            viewModel.getGames()
+            checkConnectionAndGetGames()
         }
         return cell
     }
