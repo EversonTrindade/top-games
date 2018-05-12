@@ -16,6 +16,7 @@ class TopGamesViewController: UIViewController, LoadContent {
 
     // MARK: Properties
     lazy var viewModel: TopGamesViewModelPresentable = TopGamesViewModel(delegate: self)
+    let refresher = UIRefreshControl()
 
     // MARK: IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,6 +26,7 @@ class TopGamesViewController: UIViewController, LoadContent {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadContent()
+        addRefresh()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,6 +39,7 @@ class TopGamesViewController: UIViewController, LoadContent {
     
     func checkConnectionAndGetGames() {
         if Reachability.isConnectedToNetwork() {
+            showLoader()
             viewModel.getGames()
         } else {
             showDefaultAlert(message: "No connetion!", completeBlock: nil)
@@ -44,9 +47,20 @@ class TopGamesViewController: UIViewController, LoadContent {
         }
     }
     
+    // MARK: - Private methods
+    private func addRefresh() {
+        collectionView?.alwaysBounceVertical = true
+        refresher.tintColor = .white
+        refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView?.addSubview(refresher)
+    }
+    
+    @objc func refresh() {
+        viewModel.refresh()
+    }
+    
     // MARK: LoadContent
     func loadContent() {
-        showLoader()
         checkConnectionAndGetGames()
     }
     
@@ -56,6 +70,7 @@ class TopGamesViewController: UIViewController, LoadContent {
             showDefaultAlert(message: "Can not load movies. Try later", completeBlock: nil)
         } else {
             DispatchQueue.main.async {
+                self.refresher.endRefreshing()
                 self.collectionView?.reloadData()
             }
         }
@@ -97,7 +112,6 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
         }
         cell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
         if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
-            showLoader()
             checkConnectionAndGetGames()
         }
         return cell

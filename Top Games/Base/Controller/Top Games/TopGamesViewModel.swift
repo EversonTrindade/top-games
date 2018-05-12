@@ -27,6 +27,7 @@ protocol TopGamesViewModelPresentable: class {
     func imageFromCache(identifier: String) -> UIImage?
     func updateSearchResults(for searchController: UISearchController)
     func getGameDetailDTO(row: Int) -> GameDetailDTO
+    func refresh()
 }
 
 class TopGamesViewModel: TopGamesViewModelPresentable {
@@ -91,6 +92,13 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     
     func imageFromCache(identifier: String) -> UIImage? {
         return cache.object(forKey: NSString(string: identifier))
+    }
+    
+    func refresh() {
+        games = [Game]()
+        filteredGames = [Game]()
+        canLoad = true
+        getGames()
     }
 }
 
