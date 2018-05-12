@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4004679120A6BCC900A59E08 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004679020A6BCC900A59E08 /* TodayViewModel.swift */; };
 		4043A1D620A62B96004FE148 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D520A62B96004FE148 /* DetailViewController.swift */; };
 		4043A1D820A62BA8004FE148 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D720A62BA8004FE148 /* DetailViewModel.swift */; };
 		4043A1E520A65A4B004FE148 /* TopGamesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1E420A65A4B004FE148 /* TopGamesViewModelTests.swift */; };
 		4043A1E720A65AE3004FE148 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1E620A65AE3004FE148 /* GameTests.swift */; };
 		4043A1E920A65BB1004FE148 /* Mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 4043A1E820A65BB1004FE148 /* Mock.json */; };
 		4043A1EB20A67FB8004FE148 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1EA20A67FB8004FE148 /* Reachability.swift */; };
+		4043A1F420A69D12004FE148 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4043A1F320A69D12004FE148 /* NotificationCenter.framework */; };
+		4043A1F720A69D12004FE148 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1F620A69D12004FE148 /* TodayViewController.swift */; };
+		4043A1FA20A69D12004FE148 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4043A1F820A69D12004FE148 /* MainInterface.storyboard */; };
+		4043A1FE20A69D12004FE148 /* GamesWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4043A1F120A69D12004FE148 /* GamesWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		40ED7D2B20A24E09006D7168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED7D2A20A24E09006D7168 /* AppDelegate.swift */; };
 		40ED7D3020A24E09006D7168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40ED7D2E20A24E09006D7168 /* Main.storyboard */; };
 		40ED7D3220A24E0B006D7168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40ED7D3120A24E0B006D7168 /* Assets.xcassets */; };
@@ -34,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4043A1FC20A69D12004FE148 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40ED7D1F20A24E08006D7168 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4043A1F020A69D12004FE148;
+			remoteInfo = GamesWidget;
+		};
 		40ED7D3C20A24E0B006D7168 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 40ED7D1F20A24E08006D7168 /* Project object */;
@@ -43,13 +55,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4043A20220A69D13004FE148 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4043A1FE20A69D12004FE148 /* GamesWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4004679020A6BCC900A59E08 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		4043A1D520A62B96004FE148 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4043A1D720A62BA8004FE148 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4043A1E420A65A4B004FE148 /* TopGamesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGamesViewModelTests.swift; sourceTree = "<group>"; };
 		4043A1E620A65AE3004FE148 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		4043A1E820A65BB1004FE148 /* Mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mock.json; sourceTree = "<group>"; };
 		4043A1EA20A67FB8004FE148 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		4043A1F120A69D12004FE148 /* GamesWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GamesWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4043A1F320A69D12004FE148 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4043A1F620A69D12004FE148 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4043A1F920A69D12004FE148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4043A1FB20A69D12004FE148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4043A20320A6A46D004FE148 /* Top Games.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Top Games.entitlements"; sourceTree = "<group>"; };
+		4043A20520A6A7E5004FE148 /* GamesWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GamesWidget.entitlements; sourceTree = "<group>"; };
 		40ED7D2720A24E09006D7168 /* Top Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top Games.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40ED7D2A20A24E09006D7168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40ED7D2F20A24E09006D7168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +109,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4043A1EE20A69D12004FE148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4043A1F420A69D12004FE148 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		40ED7D2420A24E09006D7168 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,11 +159,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4043A1F220A69D12004FE148 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4043A1F320A69D12004FE148 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4043A1F520A69D12004FE148 /* GamesWidget */ = {
+			isa = PBXGroup;
+			children = (
+				4043A20520A6A7E5004FE148 /* GamesWidget.entitlements */,
+				4043A1F620A69D12004FE148 /* TodayViewController.swift */,
+				4004679020A6BCC900A59E08 /* TodayViewModel.swift */,
+				4043A1F820A69D12004FE148 /* MainInterface.storyboard */,
+				4043A1FB20A69D12004FE148 /* Info.plist */,
+			);
+			path = GamesWidget;
+			sourceTree = "<group>";
+		};
 		40ED7D1E20A24E08006D7168 = {
 			isa = PBXGroup;
 			children = (
 				40ED7D2920A24E09006D7168 /* Top Games */,
 				40ED7D3E20A24E0B006D7168 /* Top GamesTests */,
+				4043A1F520A69D12004FE148 /* GamesWidget */,
+				4043A1F220A69D12004FE148 /* Frameworks */,
 				40ED7D2820A24E09006D7168 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +195,7 @@
 			children = (
 				40ED7D2720A24E09006D7168 /* Top Games.app */,
 				40ED7D3B20A24E0B006D7168 /* Top GamesTests.xctest */,
+				4043A1F120A69D12004FE148 /* GamesWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +203,7 @@
 		40ED7D2920A24E09006D7168 /* Top Games */ = {
 			isa = PBXGroup;
 			children = (
+				4043A20320A6A46D004FE148 /* Top Games.entitlements */,
 				40ED7D4A20A2518E006D7168 /* AppDelegate */,
 				40ED7D4B20A2519D006D7168 /* Base */,
 				40ED7D4C20A251AB006D7168 /* Other Files */,
@@ -273,6 +339,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4043A1F020A69D12004FE148 /* GamesWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4043A1FF20A69D13004FE148 /* Build configuration list for PBXNativeTarget "GamesWidget" */;
+			buildPhases = (
+				4043A1ED20A69D12004FE148 /* Sources */,
+				4043A1EE20A69D12004FE148 /* Frameworks */,
+				4043A1EF20A69D12004FE148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GamesWidget;
+			productName = GamesWidget;
+			productReference = 4043A1F120A69D12004FE148 /* GamesWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		40ED7D2620A24E09006D7168 /* Top Games */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40ED7D4420A24E0B006D7168 /* Build configuration list for PBXNativeTarget "Top Games" */;
@@ -280,10 +363,12 @@
 				40ED7D2320A24E09006D7168 /* Sources */,
 				40ED7D2420A24E09006D7168 /* Frameworks */,
 				40ED7D2520A24E09006D7168 /* Resources */,
+				4043A20220A69D13004FE148 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4043A1FD20A69D12004FE148 /* PBXTargetDependency */,
 			);
 			name = "Top Games";
 			productName = "Top Games";
@@ -318,8 +403,21 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Everson Trindade";
 				TargetAttributes = {
+					4043A1F020A69D12004FE148 = {
+						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					40ED7D2620A24E09006D7168 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					40ED7D3A20A24E0B006D7168 = {
 						CreatedOnToolsVersion = 9.3;
@@ -342,11 +440,20 @@
 			targets = (
 				40ED7D2620A24E09006D7168 /* Top Games */,
 				40ED7D3A20A24E0B006D7168 /* Top GamesTests */,
+				4043A1F020A69D12004FE148 /* GamesWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4043A1EF20A69D12004FE148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4043A1FA20A69D12004FE148 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		40ED7D2520A24E09006D7168 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +475,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4043A1ED20A69D12004FE148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4004679120A6BCC900A59E08 /* TodayViewModel.swift in Sources */,
+				4043A1F720A69D12004FE148 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		40ED7D2320A24E09006D7168 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +521,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4043A1FD20A69D12004FE148 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4043A1F020A69D12004FE148 /* GamesWidget */;
+			targetProxy = 4043A1FC20A69D12004FE148 /* PBXContainerItemProxy */;
+		};
 		40ED7D3D20A24E0B006D7168 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 40ED7D2620A24E09006D7168 /* Top Games */;
@@ -413,6 +534,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4043A1F820A69D12004FE148 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4043A1F920A69D12004FE148 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		40ED7D2E20A24E09006D7168 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +561,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4043A20020A69D13004FE148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GamesWidget/GamesWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
+				INFOPLIST_FILE = GamesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sp.code.Top-Games.GamesWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4043A20120A69D13004FE148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GamesWidget/GamesWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
+				INFOPLIST_FILE = GamesWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sp.code.Top-Games.GamesWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		40ED7D4220A24E0B006D7168 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -549,7 +718,9 @@
 		40ED7D4520A24E0B006D7168 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Top Games/Top Games.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top Games/Info.plist";
@@ -567,7 +738,9 @@
 		40ED7D4620A24E0B006D7168 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Top Games/Top Games.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top Games/Info.plist";
@@ -625,6 +798,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4043A1FF20A69D13004FE148 /* Build configuration list for PBXNativeTarget "GamesWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4043A20020A69D13004FE148 /* Debug */,
+				4043A20120A69D13004FE148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		40ED7D2220A24E08006D7168 /* Build configuration list for PBXProject "Top Games" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

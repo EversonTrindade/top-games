@@ -19,26 +19,26 @@ protocol DetailGameLoadContent: class {
     func didLoadImage()
 }
 
-protocol DetailGameViewModelDelegate: class {
+protocol DetailGameViewModelPresentable: class {
     func getImage() -> UIImage?
     func imageFromCache() -> UIImage?
 }
 
-class DetailGameViewModel: DetailGameViewModelDelegate {
+class DetailGameViewModel: DetailGameViewModelPresentable {
     
     private var imageId = ""
     weak var loadContentDelegate: DetailGameLoadContent?
     private var cache = NSCache<NSString, UIImage>()
     
-    init(delegate: DetailGameLoadContent, imageId: String, width: CGFloat) {
+    init(delegate: DetailGameLoadContent, imageId: String) {
         loadContentDelegate = delegate
         self.imageId = imageId
     }
     
     // MARK: - CachedImageLoadContent
-    func didLoadImage(identifier: String) {
-        loadContentDelegate?.didLoadImage()
-    }
+//    func didLoadImage(identifier: String) {
+//        loadContentDelegate?.didLoadImage()
+//    }
     
     func getImage() -> UIImage? {
         if let imageCached = cache.object(forKey: NSString(string: imageId)) {

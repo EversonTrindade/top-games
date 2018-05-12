@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UITableViewController, DetailGameLoadContent {
     
-    private lazy var viewModel: DetailGameViewModelDelegate = DetailGameViewModel(delegate: self, imageId: detailDTO.image, width: view.frame.size.width)
+    private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.image)
     private var detailDTO = GameDetailDTO()
     
     @IBOutlet weak var poster: UIImageView!

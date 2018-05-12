@@ -61,6 +61,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
                 self.games = self.games + games
                 self.canLoad = true
                 self.delegate?.didLoadContent(error: nil)
+                self.saveDataToWidget()
             })
         }
     }
@@ -99,6 +100,16 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     
     func imageFromCache(identifier: String) -> UIImage? {
         return cache.object(forKey: NSString(string: identifier))
+    }
+    
+    func saveDataToWidget() {
+        let sharedDefaults = UserDefaults(suiteName: "group.sharingDataForTodayWidget")
+        for index in 0...2 {
+            let name = games.object(index: index)?.game.name
+            let image = games.object(index: index)?.game.box.medium
+            sharedDefaults?.setValue(name, forKey: "gameName\(index)")
+            sharedDefaults?.setValue(image, forKey: "gameImage\(index)")
+        }
     }
 }
 
