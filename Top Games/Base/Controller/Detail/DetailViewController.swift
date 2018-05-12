@@ -10,22 +10,22 @@ import UIKit
 
 class DetailViewController: UITableViewController, DetailGameLoadContent {
     
+    //MARK: Properties
     private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.image)
     private var detailDTO = GameDetailDTO()
     
+    // MARK: IBOutlet
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var views: UILabel!
     
+    // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         populate()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+    // MARK: Methods
     private func populate() {
         navigationItem.title = detailDTO.name
         name.text = detailDTO.name

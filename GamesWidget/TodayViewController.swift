@@ -11,6 +11,13 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding, TodayLoadContent {
     
+    // MARK: Properties
+    lazy var viewModel: TodayViewModelPresentable = TodayViewModel(delegate: self)
+    var gameImage0: String?
+    var gameImage1: String?
+    var gameImage2: String?
+    
+    // MARK: IBOutlet
     @IBOutlet weak var firstGameLbl: UILabel!
     @IBOutlet weak var secondGameLbl: UILabel!
     @IBOutlet weak var thirdGameLbl: UILabel!
@@ -18,17 +25,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, TodayLoadContent
     @IBOutlet weak var secondGameImg: UIImageView!
     @IBOutlet weak var thirdGameImg: UIImageView!
     
-    lazy var viewModel: TodayViewModelPresentable = TodayViewModel(delegate: self)
-    var gameImage0: String?
-    var gameImage1: String?
-    var gameImage2: String?
-    
-    
+    // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         showDataInWidget()
     }
     
+    // MARK: Functions
     func showDataInWidget() {
         let sharedDefaults = UserDefaults.init(suiteName: "group.sharingDataForTodayWidget")
         firstGameLbl.text = sharedDefaults?.value(forKey: "gameName0") as? String

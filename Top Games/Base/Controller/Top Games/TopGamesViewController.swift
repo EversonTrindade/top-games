@@ -29,6 +29,7 @@ class TopGamesViewController: UIViewController, LoadContent {
         addRefresh()
     }
     
+    // MARK: Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let detailViewcontroller = segue.destination as? DetailViewController, let dto = sender as? GameDetailDTO {
@@ -37,6 +38,7 @@ class TopGamesViewController: UIViewController, LoadContent {
         }
     }
     
+    // MARK: Private methods    
     func checkConnectionAndGetGames() {
         if Reachability.isConnectedToNetwork() {
             showLoader()
@@ -47,7 +49,6 @@ class TopGamesViewController: UIViewController, LoadContent {
         }
     }
     
-    // MARK: - Private methods
     private func addRefresh() {
         collectionView?.alwaysBounceVertical = true
         refresher.tintColor = .white

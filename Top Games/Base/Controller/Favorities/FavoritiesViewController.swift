@@ -8,10 +8,61 @@
 
 import UIKit
 
-class FavoritiesViewController: UIViewController {
+fileprivate struct CellIdentifier {
+    static let favorite = "FavoriteViewCell"
+    static let none = "NoOneFavoritedViewCell"
+}
 
+class FavoritiesViewController: UIViewController, FavoritiesLoadContent {
+
+    // MARK: Properties
+    private lazy var viewModel: FavoritiesViewModelPresentable = FavoritiesViewModel(delegate: self)
+    
+    // MARK: IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayout()
+    }
+    
+    // MARK: Functions
+    func setLayout() {
+        tableView.tableFooterView = UIView()
+    }
+}
 
+// MARK: UITableViewDelegate/UITableViewDataSource
+extension FavoritiesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if viewModel.numberOfGames() == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.none, for: indexPath) as? NoOneFavoritedViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favorite, for: indexPath) as? FavoriteViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return viewModel.heightForRow()
     }
 }
