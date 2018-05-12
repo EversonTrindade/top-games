@@ -1,0 +1,258 @@
+{
+    "_total": 1446,
+    "_links": {
+        "self": "https://api.twitch.tv/kraken/games/top?limit=10&offset=10",
+        "next": "https://api.twitch.tv/kraken/games/top?limit=10&offset=20"
+    },
+    "top": [{
+            "game": {
+            "name": "Overwatch",
+            "popularity": 19100,
+            "_id": 488552,
+            "giantbomb_id": 48190,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Overwatch-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Overwatch-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Overwatch-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Overwatch-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Overwatch",
+            "locale": "en-us"
+            },
+            "viewers": 19251,
+            "channels": 1399
+            },
+            {
+            "game": {
+            "name": "Dragon Ball FighterZ",
+            "popularity": 14872,
+            "_id": 497385,
+            "giantbomb_id": 59862,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Dragon%20Ball%20FighterZ-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Dragon%20Ball%20FighterZ-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Dragon%20Ball%20FighterZ-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Dragon%20Ball%20FighterZ-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Dragon%20Ball%20FighterZ-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Dragon%20Ball%20FighterZ-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Dragon%20Ball%20FighterZ-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Dragon%20Ball%20FighterZ-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Dragon Ball FighterZ",
+            "locale": "en-us"
+            },
+            "viewers": 14764,
+            "channels": 958
+            },
+            {
+            "game": {
+            "name": "VRChat",
+            "popularity": 11114,
+            "_id": 499003,
+            "giantbomb_id": 61444,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/VRChat-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/VRChat-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/VRChat-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/VRChat-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/VRChat-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/VRChat-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/VRChat-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/VRChat-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "VRChat",
+            "locale": "en-us"
+            },
+            "viewers": 11096,
+            "channels": 153
+            },
+            {
+            "game": {
+            "name": "Counter-Strike: Global Offensive",
+            "popularity": 10237,
+            "_id": 32399,
+            "giantbomb_id": 36113,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Counter-Strike:%20Global%20Offensive-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Counter-Strike:%20Global%20Offensive-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Counter-Strike: Global Offensive",
+            "locale": "en-us"
+            },
+            "viewers": 10455,
+            "channels": 572
+            },
+            {
+            "game": {
+            "name": "Music",
+            "popularity": 9144,
+            "_id": 26936,
+            "giantbomb_id": 29887,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Music-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Music-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Music-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Music-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Music-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Music-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Music-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Music-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Music",
+            "locale": "en-us"
+            },
+            "viewers": 9246,
+            "channels": 141
+            },
+            {
+            "game": {
+            "name": "Throne of Lies: The Online Game of Deceit",
+            "popularity": 9102,
+            "_id": 493567,
+            "giantbomb_id": 55750,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Throne%20of%20Lies:%20The%20Online%20Game%20of%20Deceit-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Throne of Lies: The Online Game of Deceit",
+            "locale": "en-us"
+            },
+            "viewers": 9107,
+            "channels": 8
+            },
+            {
+            "game": {
+            "name": "World of Warcraft",
+            "popularity": 6476,
+            "_id": 18122,
+            "giantbomb_id": 19783,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/World%20of%20Warcraft-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/World%20of%20Warcraft-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/World%20of%20Warcraft-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/World%20of%20Warcraft-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "World of Warcraft",
+            "locale": "en-us"
+            },
+            "viewers": 6542,
+            "channels": 649
+            },
+            {
+            "game": {
+            "name": "Dead by Daylight",
+            "popularity": 6415,
+            "_id": 491487,
+            "giantbomb_id": 52693,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Dead%20by%20Daylight-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Dead%20by%20Daylight-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Dead%20by%20Daylight-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Dead%20by%20Daylight-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Dead%20by%20Daylight-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Dead%20by%20Daylight-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Dead%20by%20Daylight-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Dead%20by%20Daylight-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Dead by Daylight",
+            "locale": "en-us"
+            },
+            "viewers": 6520,
+            "channels": 310
+            },
+            {
+            "game": {
+            "name": "Grand Theft Auto V",
+            "popularity": 6400,
+            "_id": 32982,
+            "giantbomb_id": 36765,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Grand%20Theft%20Auto%20V-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Grand%20Theft%20Auto%20V-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Grand%20Theft%20Auto%20V-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Grand%20Theft%20Auto%20V-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Grand%20Theft%20Auto%20V-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Grand%20Theft%20Auto%20V-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Grand%20Theft%20Auto%20V-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Grand%20Theft%20Auto%20V-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Grand Theft Auto V",
+            "locale": "en-us"
+            },
+            "viewers": 6278,
+            "channels": 290
+            },
+            {
+            "game": {
+            "name": "Slay the Spire",
+            "popularity": 5679,
+            "_id": 496902,
+            "giantbomb_id": 59383,
+            "box": {
+            "large": "https://static-cdn.jtvnw.net/ttv-boxart/Slay%20the%20Spire-272x380.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-boxart/Slay%20the%20Spire-136x190.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-boxart/Slay%20the%20Spire-52x72.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-boxart/Slay%20the%20Spire-{width}x{height}.jpg"
+            },
+            "logo": {
+            "large": "https://static-cdn.jtvnw.net/ttv-logoart/Slay%20the%20Spire-240x144.jpg",
+            "medium": "https://static-cdn.jtvnw.net/ttv-logoart/Slay%20the%20Spire-120x72.jpg",
+            "small": "https://static-cdn.jtvnw.net/ttv-logoart/Slay%20the%20Spire-60x36.jpg",
+            "template": "https://static-cdn.jtvnw.net/ttv-logoart/Slay%20the%20Spire-{width}x{height}.jpg"
+            },
+            "_links": {},
+            "localized_name": "Slay the Spire",
+            "locale": "en-us"
+            },
+            "viewers": 5709,
+            "channels": 130
+            }
+            ]
+}

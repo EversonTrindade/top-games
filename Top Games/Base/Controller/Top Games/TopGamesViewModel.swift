@@ -46,6 +46,8 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         self.interactor = interactor
     }
     
+    init() { }
+    
     // MARK: Functions
     func getGames() {
         if canLoad {
