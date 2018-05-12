@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='Top GamesTests.xctest' tests='8' failures='0'>
+  <testsuite name='Top_GamesTests.GameTests' tests='1' failures='0'>
+    <testcase classname='Top_GamesTests.GameTests' name='testShouldValidateGameResult' time='0.015'/>
+  </testsuite>
+  <testsuite name='Top_GamesTests.TopGamesViewModelTests' tests='5' failures='0'>
+    <testcase classname='Top_GamesTests.TopGamesViewModelTests' name='testShouldValidateGetGameDetailDTO' time='0.007'/>
+    <testcase classname='Top_GamesTests.TopGamesViewModelTests' name='testShouldValidateGetGameDTO' time='0.004'/>
+    <testcase classname='Top_GamesTests.TopGamesViewModelTests' name='testShouldValidateMinimumInteritemSpacing' time='0.004'/>
+    <testcase classname='Top_GamesTests.TopGamesViewModelTests' name='testShouldValidateNumberOfItems' time='0.003'/>
+    <testcase classname='Top_GamesTests.TopGamesViewModelTests' name='testShouldValidateNumberOfSections' time='0.004'/>
+  </testsuite>
+  <testsuite name='Top_GamesTests.Top_GamesTests' tests='2' failures='0'>
+    <testcase classname='Top_GamesTests.Top_GamesTests' name='testExample' time='0.002'/>
+    <testcase classname='Top_GamesTests.Top_GamesTests' name='testPerformanceExample' time='0.581'/>
+  </testsuite>
+</testsuites>
