@@ -65,6 +65,13 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         }
     }
     
+    func refresh() {
+        games = [Game]()
+        filteredGames = [Game]()
+        canLoad = true
+        getGames()
+    }
+    
     func getImage(urlString: String) -> UIImage {
         
         let placeholder = UIImage(named: "icon-placeholder")
@@ -92,13 +99,6 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     
     func imageFromCache(identifier: String) -> UIImage? {
         return cache.object(forKey: NSString(string: identifier))
-    }
-    
-    func refresh() {
-        games = [Game]()
-        filteredGames = [Game]()
-        canLoad = true
-        getGames()
     }
 }
 

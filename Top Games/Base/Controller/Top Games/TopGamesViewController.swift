@@ -56,7 +56,15 @@ class TopGamesViewController: UIViewController, LoadContent {
     }
     
     @objc func refresh() {
-        viewModel.refresh()
+        if Reachability.isConnectedToNetwork() {
+            viewModel.refresh()
+        } else {
+            showDefaultAlert(message: "No connetion!", completeBlock: nil)
+            DispatchQueue.main.async {
+                self.refresher.endRefreshing()
+                self.collectionView?.reloadData()
+            }
+        }
     }
     
     // MARK: LoadContent
