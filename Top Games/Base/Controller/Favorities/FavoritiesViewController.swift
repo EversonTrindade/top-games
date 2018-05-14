@@ -48,6 +48,15 @@ class FavoritiesViewController: UIViewController, FavoritiesLoadContent {
             self.tableView.reloadData()
         }
     }
+    
+    // MARK: Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let detailViewcontroller = segue.destination as? DetailViewController, let dto = sender as? GameDetailDTO {
+                detailViewcontroller.fill(with: dto)
+            }
+        }
+    }
 }
 
 // MARK: UITableViewDelegate/UITableViewDataSource
@@ -77,7 +86,7 @@ extension FavoritiesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showDetail", sender: viewModel.getGameDetailDTO(row: indexPath.row))
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -19,6 +19,7 @@ protocol FavoritiesViewModelPresentable: class {
     func numberOfGames() -> Int
     func getFavoritiesGames()
     func getFavorite(index: Int) -> FavoriteCellDTO
+    func getGameDetailDTO(row: Int) -> GameDetailDTO
 }
 
 class FavoritiesViewModel: FavoritiesViewModelPresentable {
@@ -64,4 +65,14 @@ extension FavoritiesViewModel {
     func numberOfGames() -> Int {
         return games.count
     }
+    
+    func getGameDetailDTO(row: Int) -> GameDetailDTO {
+        guard let game = games.object(index: row) else {
+            return GameDetailDTO()
+        }
+        return GameDetailDTO(name: game.game?.name ?? "",
+                             image: game.game?.box?.large ?? "",
+                             views: game.viewers ?? 0)
+    }
+
 }

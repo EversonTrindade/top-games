@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "548034324.675993"
+            timestampString = "548034812.309455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "548034324.679629"
+            timestampString = "548034812.309927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/Components/TopGamesViewCell.swift"
-            timestampString = "548034324.6942509"
+            timestampString = "548034812.310492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -73,28 +73,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "548034324.694788"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "didFavorite(with:shouldFavorite:imageData:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Favorities/FavoritiesViewModel.swift"
-            timestampString = "548034324.695201"
+            timestampString = "548034812.310874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "getFavoritiesGames()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Favorities/FavoritiesViewController.swift"
-            timestampString = "548034324.695514"
+            timestampString = "548034812.31171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Favorities/Components/FavoriteViewCell.swift"
-            timestampString = "548034324.695787"
+            timestampString = "548034812.312048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -138,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Favorities/FavoritiesViewModel.swift"
-            timestampString = "548034324.695963"
+            timestampString = "548034812.3122931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "getFavorite(index:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Favorities/FavoritiesViewController.swift"
-            timestampString = "548034324.696133"
+            timestampString = "548034812.312696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -170,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/DataBase/FavoriteManager.swift"
-            timestampString = "548034324.696399"
+            timestampString = "548034812.312865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -186,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/DataBase/FavoriteManager.swift"
-            timestampString = "548034324.696649"
+            timestampString = "548034812.313069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -202,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/Components/TopGamesViewCell.swift"
-            timestampString = "548034324.696838"
+            timestampString = "548034812.313234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -217,72 +201,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "548034324.696974"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Top Games/Base/Controller/Top Games/TopGamesViewController.swift"
-            timestampString = "548034324.697121"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "didLoadImage(identifier:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Top_Games.TopGamesViewController.didLoadImage(identifier: Swift.Int) -&gt; ()"
-                  moduleName = "Top Games"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Top%20Games/Top%20Games/Top%20Games/Base/Controller/Top%20Games/TopGamesViewController.swift"
-                  timestampString = "548033836.772055"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "21">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Top_Games.TopGamesViewController.didLoadImage(identifier: Swift.Int) -&gt; ()"
-                  moduleName = "Top Games"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Everson/Git/Top%20Games/Top%20Games/Top%20Games/Base/Controller/Top%20Games/TopGamesViewController.swift"
-                  timestampString = "548033836.7771159"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "548034324.697298"
+            timestampString = "548034812.31336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -298,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "548034324.697876"
+            timestampString = "548034812.313504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -314,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Top Games/Base/Controller/Top Games/TopGamesViewModel.swift"
-            timestampString = "548034324.698348"
+            timestampString = "548034812.3136981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"

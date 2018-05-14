@@ -213,6 +213,7 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="JNl-VK-awX"/>
                     <connections>
                         <outlet property="tableView" destination="T96-Jr-YMC" id="3Va-M8-c3v"/>
+                        <segue destination="LoJ-UO-Xkg" kind="show" identifier="showDetail" id="lP8-KB-hqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BO0-DY-Dxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,4 +345,7 @@
             <point key="canvasLocation" x="996" y="57"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lP8-KB-hqy"/>
+    </inferredMetricsTieBreakers>
 </document>
