@@ -44,7 +44,7 @@ class TopGamesViewModelTests: XCTestCase {
     
     func testShouldValidateGetGameDTO() {
         XCTAssert(viewModel.gameDTO(row: 0).name == "Overwatch")
-        XCTAssert(viewModel.gameDTO(row: 0).identifier == "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-136x190.jpg")
+        XCTAssert(viewModel.gameDTO(row: 0).identifier == 488552)
     }
     
     func testShouldValidateGetGameDetailDTO() {

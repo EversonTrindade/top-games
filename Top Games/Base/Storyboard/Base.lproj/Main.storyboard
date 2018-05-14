@@ -21,7 +21,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yGT-2q-HrU">
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7b0-Ux-IXR">
                                     <size key="itemSize" width="182" height="286"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,9 +36,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="286"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-S4-Kne">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-S4-Kne">
                                                     <rect key="frame" x="-0.5" y="230" width="182.5" height="56"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="rHJ-Vy-vsv"/>
                                                     </constraints>
@@ -58,6 +58,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="7Pm-QH-4G5"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="favoriteGameAction:" destination="Rrw-Mu-Zil" eventType="touchUpInside" id="PRF-YY-12h"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-ZU-pfP">
                                                     <rect key="frame" x="-0.5" y="0.0" width="182.5" height="230"/>
@@ -81,9 +84,19 @@
                                         </constraints>
                                         <size key="customSize" width="182" height="286"/>
                                         <connections>
+                                            <outlet property="gameFavoriteBtn" destination="NWn-wi-nJr" id="j1e-mK-c6A"/>
                                             <outlet property="gameImg" destination="GeG-ZU-pfP" id="Rji-M6-Vjc"/>
                                             <outlet property="gameNameLbl" destination="sQe-aE-b9b" id="UG3-T4-f9O"/>
                                         </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fbg-G8-uuZ">
+                                        <rect key="frame" x="192" y="85" width="183" height="116"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="116"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="183" height="116"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -99,7 +112,7 @@
                                 </connections>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hfr-wj-zEk" firstAttribute="leading" secondItem="FvQ-P0-34d" secondAttribute="leading" id="9OG-33-gWL"/>
                             <constraint firstItem="yGT-2q-HrU" firstAttribute="trailing" secondItem="FvQ-P0-34d" secondAttribute="trailing" id="LrM-lp-gUJ"/>
@@ -120,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUn-3N-xGk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="-281"/>
+            <point key="canvasLocation" x="160.80000000000001" y="-281.10944527736132"/>
         </scene>
         <!--Favorities View Controller-->
         <scene sceneID="Gvh-pP-89a">

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FavoritiesLoadContent: class {
-
+    func didLoadContent(gamesCount: Int)
 }
 
 protocol FavoritiesViewModelPresentable: class {
@@ -17,6 +17,8 @@ protocol FavoritiesViewModelPresentable: class {
     func numberOfRowsInSection() -> Int
     func heightForRow() -> CGFloat
     func numberOfGames() -> Int
+    func getFavoritiesGames()
+    func getFavorite(index: Int) -> FavoriteCellDTO
 }
 
 class FavoritiesViewModel: FavoritiesViewModelPresentable {
@@ -29,6 +31,19 @@ class FavoritiesViewModel: FavoritiesViewModelPresentable {
     // MARK: Init
     init(delegate: FavoritiesLoadContent) {
         loadContentDelegate = delegate
+    }
+    
+    // MARK: Functions
+    func getFavoritiesGames() {
+        games = FavoriteManager().loadGames()
+        loadContentDelegate?.didLoadContent(gamesCount: games.count)
+    }
+    
+    func getFavorite(index: Int) -> FavoriteCellDTO {
+        guard let favorite = games.object(index: index) else {
+            return FavoriteCellDTO()
+        }
+        return FavoriteCellDTO(imageData: favorite.game?.imageData ?? Data(), name: (favorite.game?.name)!)
     }
 
 }

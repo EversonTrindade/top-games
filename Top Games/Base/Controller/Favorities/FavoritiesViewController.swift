@@ -27,9 +27,26 @@ class FavoritiesViewController: UIViewController, FavoritiesLoadContent {
         setLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getFavoritiesGames()
+    }
+    
     // MARK: Functions
     func setLayout() {
         tableView.tableFooterView = UIView()
+    }
+    
+    func getFavoritiesGames() {
+        showLoader()
+        viewModel.getFavoritiesGames()
+    }
+    
+    func didLoadContent(gamesCount: Int) {
+        dismissLoader()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -54,6 +71,7 @@ extension FavoritiesViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.favorite, for: indexPath) as? FavoriteViewCell else {
                 return UITableViewCell()
             }
+            cell.fillCell(dto: viewModel.getFavorite(index: indexPath.row))
             return cell
         }
     }

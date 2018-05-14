@@ -8,8 +8,18 @@
 
 import UIKit
 
+struct FavoriteCellDTO {
+    var imageData = Data()
+    var name = ""
+}
+
 class FavoriteViewCell: UITableViewCell {
     
     @IBOutlet weak var movieImg: UIImageView!
     @IBOutlet weak var movieName: UILabel!
+    
+    func fillCell(dto: FavoriteCellDTO) {
+        movieImg.image = UIImage(data: dto.imageData)
+        movieName.text = dto.name
+    }
 }

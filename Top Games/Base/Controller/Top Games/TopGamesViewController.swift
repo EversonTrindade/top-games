@@ -12,8 +12,8 @@ fileprivate struct CellIdentifier {
     static let gameIdentifier = "TopGamesViewCell"
 }
 
-class TopGamesViewController: UIViewController, LoadContent {
-
+class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
+    
     // MARK: Properties
     lazy var viewModel: TopGamesViewModelPresentable = TopGamesViewModel(delegate: self)
     let refresher = UIRefreshControl()
@@ -43,6 +43,7 @@ class TopGamesViewController: UIViewController, LoadContent {
         if Reachability.isConnectedToNetwork() {
             showLoader()
             viewModel.getGames()
+            viewModel.getFavorites()
         } else {
             showDefaultAlert(message: "No connetion!", completeBlock: nil)
             dismissLoader()
@@ -79,13 +80,15 @@ class TopGamesViewController: UIViewController, LoadContent {
             showDefaultAlert(message: "Can not load movies. Try later", completeBlock: nil)
         } else {
             DispatchQueue.main.async {
-                self.refresher.endRefreshing()
                 self.collectionView?.reloadData()
             }
         }
+        DispatchQueue.main.async {
+            self.refresher.endRefreshing()
+        }
     }
     
-    func didLoadImage(identifier: String) {
+    func didLoadImage(identifier: Int) {
         DispatchQueue.main.async {
             guard let collection = self.collectionView else {
                 return
@@ -103,6 +106,11 @@ class TopGamesViewController: UIViewController, LoadContent {
             self.collectionView.reloadData()
         }
     }
+    
+    // MARK: GameCellDelegate
+    func didFavorite(with id: Int, shouldFavorite: Bool, imageData: Data?) {
+        viewModel.didFavorite(with: id, shouldFavorite: shouldFavorite, imageData: imageData)
+    }
 }
 
 // MARK: UITableViewDelegate/DataSource
@@ -119,6 +127,7 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.gameIdentifier, for: indexPath) as? TopGamesViewCell else {
             return UICollectionViewCell()
         }
+        cell.delegate = self
         cell.fillCell(dto: viewModel.gameDTO(row: indexPath.row))
         if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
             checkConnectionAndGetGames()

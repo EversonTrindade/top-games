@@ -10,6 +10,9 @@
 		4004679120A6BCC900A59E08 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4004679020A6BCC900A59E08 /* TodayViewModel.swift */; };
 		400EA34620A75D6600007C27 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400EA34520A75D6600007C27 /* FavoriteViewCell.swift */; };
 		400EA34820A769ED00007C27 /* NoOneFavoritedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400EA34720A769ED00007C27 /* NoOneFavoritedViewCell.swift */; };
+		400EA34C20A7A76B00007C27 /* Favorite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 400EA34A20A7A76B00007C27 /* Favorite.xcdatamodeld */; };
+		400EA34E20A7B60400007C27 /* LocalDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400EA34D20A7B60400007C27 /* LocalDataBase.swift */; };
+		400EA35020A7B62800007C27 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400EA34F20A7B62800007C27 /* FavoriteManager.swift */; };
 		4043A1D620A62B96004FE148 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D520A62B96004FE148 /* DetailViewController.swift */; };
 		4043A1D820A62BA8004FE148 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1D720A62BA8004FE148 /* DetailViewModel.swift */; };
 		4043A1E520A65A4B004FE148 /* TopGamesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043A1E420A65A4B004FE148 /* TopGamesViewModelTests.swift */; };
@@ -74,6 +77,9 @@
 		4004679020A6BCC900A59E08 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		400EA34520A75D6600007C27 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		400EA34720A769ED00007C27 /* NoOneFavoritedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoOneFavoritedViewCell.swift; sourceTree = "<group>"; };
+		400EA34B20A7A76B00007C27 /* Favorite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorite.xcdatamodel; sourceTree = "<group>"; };
+		400EA34D20A7B60400007C27 /* LocalDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataBase.swift; sourceTree = "<group>"; };
+		400EA34F20A7B62800007C27 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		4043A1D520A62B96004FE148 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4043A1D720A62BA8004FE148 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4043A1E420A65A4B004FE148 /* TopGamesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGamesViewModelTests.swift; sourceTree = "<group>"; };
@@ -143,6 +149,16 @@
 				400EA34720A769ED00007C27 /* NoOneFavoritedViewCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		400EA34920A7A70F00007C27 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				400EA34A20A7A76B00007C27 /* Favorite.xcdatamodeld */,
+				400EA34D20A7B60400007C27 /* LocalDataBase.swift */,
+				400EA34F20A7B62800007C27 /* FavoriteManager.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		4043A1D220A62B4D004FE148 /* Detail */ = {
@@ -244,6 +260,7 @@
 		40ED7D4B20A2519D006D7168 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				400EA34920A7A70F00007C27 /* DataBase */,
 				40ED7D5020A2520D006D7168 /* Model */,
 				40ED7D4F20A251EF006D7168 /* Networking */,
 				40ED7D4E20A251DC006D7168 /* Storyboard */,
@@ -508,10 +525,13 @@
 				40ED7D6120A25B8D006D7168 /* FavoritiesViewController.swift in Sources */,
 				4043A1EB20A67FB8004FE148 /* Reachability.swift in Sources */,
 				40ED7D5B20A2590F006D7168 /* TopGamesViewModel.swift in Sources */,
+				400EA34C20A7A76B00007C27 /* Favorite.xcdatamodeld in Sources */,
+				400EA34E20A7B60400007C27 /* LocalDataBase.swift in Sources */,
 				40ED7D5F20A25B74006D7168 /* FavoritiesViewModel.swift in Sources */,
 				40ED7D5920A258F6006D7168 /* TopGamesViewController.swift in Sources */,
 				40ED7D6C20A3691F006D7168 /* GameRequest.swift in Sources */,
 				40ED7D7D20A3DD88006D7168 /* Array+Extension.swift in Sources */,
+				400EA35020A7B62800007C27 /* FavoriteManager.swift in Sources */,
 				4043A1D620A62B96004FE148 /* DetailViewController.swift in Sources */,
 				400EA34620A75D6600007C27 /* FavoriteViewCell.swift in Sources */,
 				40ED7D7B20A3CF37006D7168 /* TopGamesViewCell.swift in Sources */,
@@ -773,6 +793,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top GamesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -793,6 +814,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WKCP7ABWCG;
 				INFOPLIST_FILE = "Top GamesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -847,6 +869,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		400EA34A20A7A76B00007C27 /* Favorite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				400EA34B20A7A76B00007C27 /* Favorite.xcdatamodel */,
+			);
+			currentVersion = 400EA34B20A7A76B00007C27 /* Favorite.xcdatamodel */;
+			path = Favorite.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 40ED7D1F20A24E08006D7168 /* Project object */;
 }
