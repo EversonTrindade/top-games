@@ -52,7 +52,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     
     private func addRefresh() {
         collectionView?.alwaysBounceVertical = true
-        refresher.tintColor = .white
+        refresher.tintColor = .black
         refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collectionView?.addSubview(refresher)
     }

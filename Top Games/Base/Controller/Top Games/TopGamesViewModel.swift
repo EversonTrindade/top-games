@@ -76,6 +76,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         filteredGames = [Game]()
         canLoad = true
         getGames()
+        getFavorites()
     }
     
     func getImage(urlString: String, id: Int) -> UIImage {
@@ -86,7 +87,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
             cache.setObject(placeholder ?? UIImage(), forKey: NSString(string: urlString))
         }
         
-        if let cachedImage = cache.object(forKey: NSString(string: urlString)) {
+        if let cachedImage = cache.object(forKey: NSString(string: "\(id)")) {
             return cachedImage
         }
         
@@ -94,7 +95,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
             URLSession.shared.dataTask(with: url, completionHandler: { data, _, _ in
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        self.cache.setObject(image, forKey: NSString(string: urlString))
+                        self.cache.setObject(image, forKey: NSString(string: "\(id)"))
                         self.delegate?.didLoadImage(identifier: id)
                     }
                 }
