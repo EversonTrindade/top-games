@@ -146,7 +146,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     }
 }
 
-// MARK: UITableViewDTO
+// MARK: UICollectionViewDTO
 extension TopGamesViewModel {
     func numberOfSections() -> Int {
         return 1
@@ -172,7 +172,8 @@ extension TopGamesViewModel {
             }
             return GameDTO(name: game.game?.name ?? "",
                            image: getImage(urlString: game.game?.box?.medium ?? "", id: game.game?._id ?? 0),
-                           identifier: game.game?._id ?? 0, favorite: isFavorite(id: game.game?._id ?? 0))
+                           identifier: game.game?._id ?? 0,
+                           favorite: isFavorite(id: game.game?._id ?? 0))
 
         }
     }
@@ -183,15 +184,15 @@ extension TopGamesViewModel {
                 return GameDetailDTO()
             }
             return GameDetailDTO(name: game.game?.name ?? "",
-                                 image: game.game?.box?.large ?? "",
-                                 views: game.viewers ?? 0)
+                                 large: game.game?.box?.large ?? "",
+                                 viewers: game.viewers ?? 0)
         } else {
             guard let game = games.object(index: row) else {
                 return GameDetailDTO()
             }
             return GameDetailDTO(name: game.game?.name ?? "",
-                                 image: game.game?.box?.large ?? "",
-                                 views: game.viewers ?? 0)
+                                 large: game.game?.box?.large ?? "",
+                                 viewers: game.viewers ?? 0)
         }
     }
     

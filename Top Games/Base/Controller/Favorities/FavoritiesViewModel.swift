@@ -49,6 +49,7 @@ class FavoritiesViewModel: FavoritiesViewModelPresentable {
 
 }
 
+// MARK: UITableViewDTO
 extension FavoritiesViewModel {
     func numberOfSections() -> Int {
         return 1
@@ -71,8 +72,8 @@ extension FavoritiesViewModel {
             return GameDetailDTO()
         }
         return GameDetailDTO(name: game.game?.name ?? "",
-                             image: game.game?.box?.large ?? "",
-                             views: game.viewers ?? 0)
+                             large: game.game?.box?.large ?? "",
+                             viewers: game.viewers ?? 0)
     }
 
 }

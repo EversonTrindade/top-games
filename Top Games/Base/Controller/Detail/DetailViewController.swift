@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UITableViewController, DetailGameLoadContent {
     
     //MARK: Properties
-    private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.image)
+    private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.large)
     private var detailDTO = GameDetailDTO()
     
     // MARK: IBOutlet
@@ -23,14 +23,27 @@ class DetailViewController: UITableViewController, DetailGameLoadContent {
     override func viewDidLoad() {
         super.viewDidLoad()
         populate()
+        formatNavigationBar()
     }
     
     // MARK: Methods
     private func populate() {
-        navigationItem.title = detailDTO.name
         name.text = detailDTO.name
-        views.text = "Viewers: \(detailDTO.views)"
+        views.text = "Viewers: \(detailDTO.viewers)"
         poster.image = viewModel.getImage()
+    }
+    
+    func formatNavigationBar() {
+        navigationItem.title = detailDTO.name
+        let favoriteButton = UIBarButtonItem(image: UIImage(named: "favorite-set-icon"),
+                                             style: .plain, target: self, action: #selector(favoriteGame))
+        favoriteButton.tintColor = UIColor.red
+        favoriteButton.image = UIImage(named: "favorite-notset-icon")
+        navigationItem.rightBarButtonItems = [favoriteButton]
+    }
+    
+    @objc func favoriteGame() {
+//        viewModel.favoriteGame()
     }
     
     func fill(with dto: GameDetailDTO) {

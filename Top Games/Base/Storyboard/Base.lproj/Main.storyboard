@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top Games-->
+        <!--Top Games View Controller-->
         <scene sceneID="c9N-cN-boU">
             <objects>
-                <viewController title="Top Games" id="2Cq-6Z-sxm" customClass="TopGamesViewController" customModule="Top_Games" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Cq-6Z-sxm" customClass="TopGamesViewController" customModule="Top_Games" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eOX-7I-9Kp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,15 +89,6 @@
                                             <outlet property="gameNameLbl" destination="sQe-aE-b9b" id="UG3-T4-f9O"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fbg-G8-uuZ">
-                                        <rect key="frame" x="192" y="85" width="183" height="116"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="183" height="116"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                        <size key="customSize" width="183" height="116"/>
-                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="2Cq-6Z-sxm" id="x6y-3t-Juq"/>
@@ -154,32 +145,45 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xf-3y-QEx">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0xf-3y-QEx">
                                                     <rect key="frame" x="15" y="11" width="66" height="83"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66" id="ekM-6K-4nM"/>
+                                                        <constraint firstAttribute="height" constant="83" id="f5H-98-wJJ"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-ne-VYX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlN-ne-VYX">
                                                     <rect key="frame" x="102" y="20" width="210" height="63"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="63" id="EZN-Zx-pSK"/>
+                                                        <constraint firstAttribute="width" constant="210" id="JZs-ek-z83"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0xf-3y-QEx" firstAttribute="top" secondItem="CYW-9n-nbn" secondAttribute="topMargin" id="7AD-jP-mh3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mlN-ne-VYX" secondAttribute="trailing" constant="22" id="KhS-KA-ekk"/>
+                                                <constraint firstItem="mlN-ne-VYX" firstAttribute="top" secondItem="CYW-9n-nbn" secondAttribute="topMargin" constant="9" id="MnO-in-4wa"/>
+                                                <constraint firstItem="mlN-ne-VYX" firstAttribute="leading" secondItem="0xf-3y-QEx" secondAttribute="trailing" constant="21" id="fgj-hn-HAH"/>
+                                                <constraint firstItem="0xf-3y-QEx" firstAttribute="leading" secondItem="CYW-9n-nbn" secondAttribute="leadingMargin" id="xpq-A1-7el"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="movieImg" destination="0xf-3y-QEx" id="A3h-Bt-L4r"/>
-                                            <outlet property="movieName" destination="mlN-ne-VYX" id="4Vt-hJ-m15"/>
+                                            <outlet property="gameImg" destination="0xf-3y-QEx" id="Unw-cC-dnu"/>
+                                            <outlet property="gameName" destination="mlN-ne-VYX" id="UyW-qi-a21"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoOneFavoritedViewCell" rowHeight="105" id="9UT-gM-QgK" customClass="NoOneFavoritedViewCell" customModule="Top_Games" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoOneFavoritedViewCell" rowHeight="105" id="9UT-gM-QgK" customClass="NoOneFavoritedViewCell" customModule="Top_Games" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="133" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9UT-gM-QgK" id="ZjD-N8-bWd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have have favorities movies!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh8-lp-VkH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have favorited game!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh8-lp-VkH">
                                                     <rect key="frame" x="26" y="31" width="323" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>

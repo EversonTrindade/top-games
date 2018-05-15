@@ -11,8 +11,9 @@ import UIKit
 
 struct GameDetailDTO {
     var name = ""
-    var image = ""
-    var views = 0
+    var large = ""
+    var viewers = 0
+    
 }
 
 protocol DetailGameLoadContent: class {
@@ -22,24 +23,23 @@ protocol DetailGameLoadContent: class {
 protocol DetailGameViewModelPresentable: class {
     func getImage() -> UIImage?
     func imageFromCache() -> UIImage?
+    func favoriteGame() -> Bool
 }
 
 class DetailGameViewModel: DetailGameViewModelPresentable {
     
+    // MARK: Propertiers
     private var imageId = ""
     weak var loadContentDelegate: DetailGameLoadContent?
     private var cache = NSCache<NSString, UIImage>()
     
+    // MARK: Init
     init(delegate: DetailGameLoadContent, imageId: String) {
         loadContentDelegate = delegate
         self.imageId = imageId
     }
     
     // MARK: - CachedImageLoadContent
-//    func didLoadImage(identifier: String) {
-//        loadContentDelegate?.didLoadImage()
-//    }
-    
     func getImage() -> UIImage? {
         if let imageCached = cache.object(forKey: NSString(string: imageId)) {
             return imageCached
@@ -64,5 +64,10 @@ class DetailGameViewModel: DetailGameViewModelPresentable {
     
     func imageFromCache() -> UIImage? {
         return cache.object(forKey: NSString(string: imageId))
+    }
+    
+    // MARK: Functions
+    func favoriteGame() -> Bool {
+        return true
     }
 }

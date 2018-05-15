@@ -15,11 +15,11 @@ struct FavoriteCellDTO {
 
 class FavoriteViewCell: UITableViewCell {
     
-    @IBOutlet weak var movieImg: UIImageView!
-    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var gameImg: UIImageView!
+    @IBOutlet weak var gameName: UILabel!
     
     func fillCell(dto: FavoriteCellDTO) {
-        movieImg.image = UIImage(data: dto.imageData)
-        movieName.text = dto.name
+        gameImg.image = UIImage(data: dto.imageData)
+        gameName.text = dto.name
     }
 }

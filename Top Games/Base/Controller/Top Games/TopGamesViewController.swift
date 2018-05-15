@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate struct CellIdentifier {
-    static let gameIdentifier = "TopGamesViewCell"
+    static let gameId = "TopGamesViewCell"
 }
 
 class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
@@ -29,6 +29,11 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         addRefresh()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tabBarController?.navigationItem.title = "Games"
+    }
+    
     // MARK: Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
@@ -38,7 +43,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         }
     }
     
-    // MARK: Private methods    
+    // MARK: Functions
     func checkConnectionAndGetGames() {
         if Reachability.isConnectedToNetwork() {
             showLoader()
@@ -62,10 +67,11 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
             viewModel.refresh()
         } else {
             showDefaultAlert(message: "No connetion!", completeBlock: nil)
-            DispatchQueue.main.async {
-                self.refresher.endRefreshing()
-                self.collectionView?.reloadData()
-            }
+        }
+        
+        DispatchQueue.main.async {
+            self.refresher.endRefreshing()
+            self.collectionView?.reloadData()
         }
     }
     
@@ -77,7 +83,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     func didLoadContent(error: String?) {
         dismissLoader()
         if let _ = error {
-            showDefaultAlert(message: "Can not load movies. Try later", completeBlock: nil)
+            showDefaultAlert(message: "Can not load games. Try later!", completeBlock: nil)
         } else {
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
@@ -113,7 +119,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     }
 }
 
-// MARK: UITableViewDelegate/DataSource
+// MARK: UIColleectionViewDelegate/DataSource
 extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.numberOfSections()
@@ -124,7 +130,7 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.gameIdentifier, for: indexPath) as? TopGamesViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.gameId, for: indexPath) as? TopGamesViewCell else {
             return UICollectionViewCell()
         }
         cell.delegate = self

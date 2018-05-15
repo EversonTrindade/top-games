@@ -16,6 +16,7 @@ extension UIViewController {
             let loader = UIActivityIndicatorView(activityIndicatorStyle: .white)
             loader.center = UIApplication.shared.keyWindow?.center ?? CGPoint()
             loader.startAnimating()
+            loader.color = UIColor.black
             UIApplication.shared.keyWindow?.addSubview(loader)
         }
     }

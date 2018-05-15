@@ -24,17 +24,18 @@ class FavoritiesViewController: UIViewController, FavoritiesLoadContent {
     // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setLayout()
         getFavoritiesGames()
     }
     
     // MARK: Functions
     func setLayout() {
         tableView.tableFooterView = UIView()
+        tabBarController?.navigationItem.title = "Favorites"
     }
     
     func getFavoritiesGames() {
