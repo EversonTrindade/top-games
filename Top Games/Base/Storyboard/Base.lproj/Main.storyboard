@@ -19,6 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8y-aF-Els">
+                                <rect key="frame" x="0.0" y="64" width="375" height="57"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yGT-2q-HrU">
                                 <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,7 +41,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-S4-Kne">
-                                                    <rect key="frame" x="-0.5" y="230" width="182.5" height="56"/>
+                                                    <rect key="frame" x="0.0" y="230" width="182" height="56"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="rHJ-Vy-vsv"/>
@@ -63,7 +67,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GeG-ZU-pfP">
-                                                    <rect key="frame" x="-0.5" y="0.0" width="182.5" height="230"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="230"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -95,30 +99,24 @@
                                     <outlet property="delegate" destination="2Cq-6Z-sxm" id="A24-F4-rGd"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfr-wj-zEk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2Cq-6Z-sxm" id="SWe-w0-3Hu"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hfr-wj-zEk" firstAttribute="leading" secondItem="FvQ-P0-34d" secondAttribute="leading" id="9OG-33-gWL"/>
+                            <constraint firstItem="l8y-aF-Els" firstAttribute="trailing" secondItem="FvQ-P0-34d" secondAttribute="trailing" id="Fgt-Ic-rge"/>
                             <constraint firstItem="yGT-2q-HrU" firstAttribute="trailing" secondItem="FvQ-P0-34d" secondAttribute="trailing" id="LrM-lp-gUJ"/>
+                            <constraint firstItem="yGT-2q-HrU" firstAttribute="top" secondItem="l8y-aF-Els" secondAttribute="bottom" constant="-1" id="SsB-aL-NHn"/>
+                            <constraint firstItem="l8y-aF-Els" firstAttribute="top" secondItem="FvQ-P0-34d" secondAttribute="top" id="TXP-cd-af3"/>
                             <constraint firstItem="yGT-2q-HrU" firstAttribute="leading" secondItem="FvQ-P0-34d" secondAttribute="leading" id="jXC-uR-AaO"/>
-                            <constraint firstItem="hfr-wj-zEk" firstAttribute="top" secondItem="FvQ-P0-34d" secondAttribute="top" id="nBi-f0-Ph5"/>
-                            <constraint firstItem="yGT-2q-HrU" firstAttribute="top" secondItem="hfr-wj-zEk" secondAttribute="bottom" id="pVo-Gw-dml"/>
-                            <constraint firstItem="hfr-wj-zEk" firstAttribute="trailing" secondItem="FvQ-P0-34d" secondAttribute="trailing" id="sp9-jw-7HY"/>
+                            <constraint firstItem="l8y-aF-Els" firstAttribute="leading" secondItem="FvQ-P0-34d" secondAttribute="leading" id="rFh-h9-2aL"/>
                             <constraint firstItem="yGT-2q-HrU" firstAttribute="bottom" secondItem="FvQ-P0-34d" secondAttribute="bottom" id="wRp-fu-6oH"/>
+                            <constraint firstItem="yGT-2q-HrU" firstAttribute="top" secondItem="FvQ-P0-34d" secondAttribute="top" constant="56" id="zct-jA-8ab"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FvQ-P0-34d"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="bJO-mZ-ysx"/>
                     <connections>
                         <outlet property="collectionView" destination="yGT-2q-HrU" id="HSR-mH-VuE"/>
-                        <outlet property="searchBar" destination="hfr-wj-zEk" id="vMq-P6-XFV"/>
+                        <outlet property="searchBarViewPlacehold" destination="l8y-aF-Els" id="WsO-zh-Jcv"/>
                         <segue destination="LoJ-UO-Xkg" kind="show" identifier="showDetail" id="D3j-co-yFm"/>
                     </connections>
                 </viewController>
@@ -350,6 +348,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lP8-KB-hqy"/>
+        <segue reference="D3j-co-yFm"/>
     </inferredMetricsTieBreakers>
 </document>

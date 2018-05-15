@@ -17,22 +17,23 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     // MARK: Properties
     lazy var viewModel: TopGamesViewModelPresentable = TopGamesViewModel(delegate: self)
     let refresher = UIRefreshControl()
+    var searchController: UISearchController!
 
     // MARK: IBOutlet
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarViewPlacehold: UIView!
     
     // MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadContent()
         addRefresh()
+        addSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tabBarController?.navigationItem.title = "Games"
-        reloaCollectionView()
+        loadContent()
     }
     
     // MARK: Prepare for segue
@@ -53,6 +54,8 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         } else {
             showDefaultAlert(message: "No connetion!", completeBlock: nil)
             dismissLoader()
+            viewModel.eraseData()
+            reloadCollectionView()
         }
     }
     
@@ -68,12 +71,20 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
             viewModel.refresh()
         } else {
             showDefaultAlert(message: "No connetion!", completeBlock: nil)
+            viewModel.eraseData()
+            reloadCollectionView()
         }
         
-        DispatchQueue.main.async {
-            self.refresher.endRefreshing()
-            self.collectionView?.reloadData()
-        }
+        reloadCollectionView()
+    }
+    
+    func addSearchBar() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "Search Game"
+        searchController.dimsBackgroundDuringPresentation = false
+        searchBarViewPlacehold.addSubview(searchController.searchBar)
     }
     
     // MARK: LoadContent
@@ -86,7 +97,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         if let _ = error {
             showDefaultAlert(message: "Can not load games. Try later!", completeBlock: nil)
         } else {
-           reloaCollectionView()
+           reloadCollectionView()
         }
         DispatchQueue.main.async {
             self.refresher.endRefreshing()
@@ -106,8 +117,9 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         }
     }
     
-    func reloaCollectionView() {
+    func reloadCollectionView() {
         DispatchQueue.main.async {
+            self.refresher.endRefreshing()
             self.collectionView.reloadData()
         }
     }
@@ -115,6 +127,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     func didTapOnSearchToReload() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.dismissLoader()
         }
     }
     
@@ -143,6 +156,7 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.row == viewModel.numberOfItemsInSection() - 1 && viewModel.canLoad {
             checkConnectionAndGetGames()
         }
+        dismissLoader()
         return cell
     }
     
@@ -165,9 +179,17 @@ extension TopGamesViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-// MARK: Search Bar
-extension TopGamesViewController: UISearchResultsUpdating, UISearchBarDelegate {
+//MARK: Search Bar
+extension TopGamesViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.updateSearchResults(for: searchController)
+        if searchController.isActive {
+            viewModel.updateSearchResults(for: searchController)
+            dismissLoader()
+            refresher.removeFromSuperview()
+        } else {
+            collectionView.addSubview(refresher)
+            viewModel.setSearchBarActive()
+        }
+        didTapOnSearchToReload()
     }
 }

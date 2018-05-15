@@ -80,6 +80,7 @@ class DetailGameViewModel: DetailGameViewModelPresentable {
     }
     
     func favoriteGame(dto: GameDetailDTO) -> Bool {
+        getFavorites()
         if isFavorite(id: dto.id) {
             FavoriteManager.remove(favorite: formatGame(dto: dto))
             return false

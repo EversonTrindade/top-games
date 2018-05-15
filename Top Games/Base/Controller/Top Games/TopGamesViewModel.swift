@@ -13,7 +13,6 @@ import CoreData
 protocol LoadContent: class {
     func didLoadContent(error: String?)
     func didLoadImage(identifier: Int)
-    func didTapOnSearchToReload()
 }
 
 protocol TopGamesViewModelPresentable: class {
@@ -32,6 +31,8 @@ protocol TopGamesViewModelPresentable: class {
     func refresh()
     func didFavorite(with id: Int, shouldFavorite: Bool, imageData: Data?)
     func getFavorites()
+    func eraseData()
+    func setSearchBarActive()
 }
 
 class TopGamesViewModel: TopGamesViewModelPresentable {
@@ -44,7 +45,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     var favorites = [Game]()
     private var cache = NSCache<NSString, UIImage>()
     var canLoad = true
-    var searchActive = false
+    var searchBarIsActive = false
     
     // MARK: Init
     init(delegate: LoadContent?, interactor: TopGamesInteractorPresentable = TopGamesInteractor()) {
@@ -56,7 +57,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     
     // MARK: Functions
     func getGames() {
-        if canLoad {
+        if canLoad && !searchBarIsActive{
             canLoad = false
             interactor?.getGames(offset: self.games.count, completion: { (result, error) in
                 guard let games = result else {
@@ -77,6 +78,7 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         canLoad = true
         getGames()
         getFavorites()
+        searchBarIsActive = false
     }
     
     func getImage(urlString: String, id: Int) -> UIImage {
@@ -151,6 +153,16 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
         }
         return imageData
     }
+    
+    func eraseData() {
+        games = [Game]()
+        filteredGames = [Game]()
+        favorites = [Game]()
+    }
+    
+    func setSearchBarActive() {
+        searchBarIsActive = false
+    }
 }
 
 // MARK: UICollectionViewDTO
@@ -160,12 +172,11 @@ extension TopGamesViewModel {
     }
     
     func numberOfItemsInSection() -> Int {
-        return searchActive ? filteredGames.count : games.count
-//        return games.count
+        return searchBarIsActive ? filteredGames.count : games.count
     }
     
     func gameDTO(row: Int) -> GameDTO {
-        if searchActive {
+        if searchBarIsActive {
             guard let game = filteredGames.object(index: row) else {
                 return GameDTO()
             }
@@ -187,7 +198,7 @@ extension TopGamesViewModel {
     }
     
     func getGameDetailDTO(row: Int) -> GameDetailDTO {
-        if searchActive {
+        if searchBarIsActive {
             guard let game = filteredGames.object(index: row) else {
                 return GameDetailDTO()
             }
@@ -228,12 +239,16 @@ extension TopGamesViewModel {
 // MARK Search Bar
 extension TopGamesViewModel {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            self.filteredGames = searchText.isEmpty ? games : games.filter({ (item) -> Bool in
-                return item.game?.name?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-            })
-            
-            delegate?.didTapOnSearchToReload()
+        if searchController.isActive {
+            searchBarIsActive = true
+            if let searchText = searchController.searchBar.text {
+                self.filteredGames = searchText.isEmpty ? games : games.filter({ (item) -> Bool in
+                    print(self.filteredGames.count)
+                    return item.game?.name?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+                })
+            }
+        } else {
+            searchBarIsActive = false
         }
     }
 }

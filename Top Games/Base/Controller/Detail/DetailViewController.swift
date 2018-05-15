@@ -12,12 +12,7 @@ class DetailViewController: UITableViewController, DetailGameLoadContent {
     
     //MARK: Properties
     private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.large)
-    private var detailDTO = GameDetailDTO()
-//    let favoriteButton = UIBarButtonItem(image: UIImage(named: "favorite-notset-icon"),
-//                                         style: .plain,
-//                                         target: self,
-//                                         action: #selector(DetailViewController.favoriteGame(_:)))
-    
+    private var detailDTO = GameDetailDTO()    
     private var favoriteButton = UIBarButtonItem()
     
     // MARK: IBOutlet
