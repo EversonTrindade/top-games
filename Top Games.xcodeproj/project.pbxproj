@@ -40,6 +40,7 @@
 		40ED7D7620A3A121006D7168 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED7D7520A3A121006D7168 /* Games.swift */; };
 		40ED7D7B20A3CF37006D7168 /* TopGamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED7D7A20A3CF37006D7168 /* TopGamesViewCell.swift */; };
 		40ED7D7D20A3DD88006D7168 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED7D7C20A3DD88006D7168 /* Array+Extension.swift */; };
+		40FC281820AB745900C9241B /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC281720AB745900C9241B /* FavoriteViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		40ED7D7520A3A121006D7168 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		40ED7D7A20A3CF37006D7168 /* TopGamesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGamesViewCell.swift; sourceTree = "<group>"; };
 		40ED7D7C20A3DD88006D7168 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		40FC281720AB745900C9241B /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				4043A1E420A65A4B004FE148 /* TopGamesViewModelTests.swift */,
+				40FC281720AB745900C9241B /* FavoriteViewModelTests.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 			files = (
 				4043A1E520A65A4B004FE148 /* TopGamesViewModelTests.swift in Sources */,
 				4043A1E720A65AE3004FE148 /* GameTests.swift in Sources */,
+				40FC281820AB745900C9241B /* FavoriteViewModelTests.swift in Sources */,
 				40ED7D4020A24E0B006D7168 /* Top_GamesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

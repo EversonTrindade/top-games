@@ -1,29 +1,21 @@
 //
-//  TopGamesViewModelTests.swift
+//  FavoriteViewModelTests.swift
 //  Top GamesTests
 //
-//  Created by Everson Trindade on 11/05/18.
+//  Created by Everson Trindade on 15/05/18.
 //  Copyright © 2018 Everson Trindade. All rights reserved.
 //
 
 import XCTest
 @testable import Top_Games
 
-extension XCTestCase {
-    func readJSON(name: String) -> Data? {
-        let path = Bundle.main.path(forResource: name, ofType: "json")
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path!))
-        return data
-    }
-}
-
-class TopGamesViewModelTests: XCTestCase {
+class FavoriteViewModelTests: XCTestCase {
     
-    let viewModel = TopGamesViewModel()
+    let viewModel = FavoritiesViewModel()
     
     override func setUp() {
         super.setUp()
-        
+       
         guard let mocket = readJSON(name: "Mock"), let games = try? JSONDecoder().decode(Games.self, from: mocket) else {
             return
         }
@@ -34,17 +26,16 @@ class TopGamesViewModelTests: XCTestCase {
         XCTAssert(viewModel.numberOfSections() == 1)
     }
     
-    func testShouldValidateNumberOfItems() {
-        XCTAssert(viewModel.numberOfItemsInSection() == 10)
+    func testShouldValidateNumberOfRows() {
+        XCTAssert(viewModel.numberOfGames() == 10)
     }
     
-    func testShouldValidateMinimumInteritemSpacing() {
-        XCTAssert(viewModel.minimumInteritemSpacingForSectionAt() == 8.0)
+    func testShouldValidateHeigthForRow() {
+        XCTAssert(viewModel.heightForRow() == 105.0)
     }
     
-    func testShouldValidateGetGameDTO() {
-        XCTAssert(viewModel.gameDTO(row: 0).name == "Overwatch")
-        XCTAssert(viewModel.gameDTO(row: 0).identifier == 488552)
+    func testShouldValidateNumberGames() {
+        XCTAssert(viewModel.numberOfGames() == 10)
     }
     
     func testShouldValidateGetGameDetailDTO() {
@@ -56,9 +47,5 @@ class TopGamesViewModelTests: XCTestCase {
         XCTAssert(viewModel.getGameDetailDTO(row: 0).id == 488552)
         XCTAssert(viewModel.getGameDetailDTO(row: 0).giantbomb_id == 48190)
         XCTAssert(viewModel.getGameDetailDTO(row: 0).medium == "https://static-cdn.jtvnw.net/ttv-boxart/Overwatch-136x190.jpg")
-    }
-    
-    func testShouldValidateminimumInteritemSpacingForSectionAt() {
-        XCTAssert(viewModel.minimumInteritemSpacingForSectionAt() == 8.0)
     }
 }

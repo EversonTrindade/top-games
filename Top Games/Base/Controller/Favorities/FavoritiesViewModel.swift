@@ -34,6 +34,8 @@ class FavoritiesViewModel: FavoritiesViewModelPresentable {
         loadContentDelegate = delegate
     }
     
+    init() { }
+    
     // MARK: Functions
     func getFavoritiesGames() {
         games = FavoriteManager().loadGames()
