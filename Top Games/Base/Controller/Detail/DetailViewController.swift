@@ -13,6 +13,12 @@ class DetailViewController: UITableViewController, DetailGameLoadContent {
     //MARK: Properties
     private lazy var viewModel: DetailGameViewModelPresentable = DetailGameViewModel(delegate: self, imageId: detailDTO.large)
     private var detailDTO = GameDetailDTO()
+//    let favoriteButton = UIBarButtonItem(image: UIImage(named: "favorite-notset-icon"),
+//                                         style: .plain,
+//                                         target: self,
+//                                         action: #selector(DetailViewController.favoriteGame(_:)))
+    
+    private var favoriteButton = UIBarButtonItem()
     
     // MARK: IBOutlet
     @IBOutlet weak var poster: UIImageView!
@@ -23,6 +29,7 @@ class DetailViewController: UITableViewController, DetailGameLoadContent {
     override func viewDidLoad() {
         super.viewDidLoad()
         populate()
+        viewModel.getFavorites()
         formatNavigationBar()
     }
     
@@ -35,15 +42,27 @@ class DetailViewController: UITableViewController, DetailGameLoadContent {
     
     func formatNavigationBar() {
         navigationItem.title = detailDTO.name
-        let favoriteButton = UIBarButtonItem(image: UIImage(named: "favorite-set-icon"),
-                                             style: .plain, target: self, action: #selector(favoriteGame))
+        favoriteButton = UIBarButtonItem(image: UIImage(named: "favorite-notset-icon"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(favoriteGameFromDetail))
+        
         favoriteButton.tintColor = UIColor.red
-        favoriteButton.image = UIImage(named: "favorite-notset-icon")
+        
+        
+        if viewModel.isFavorite(id: detailDTO.id) {
+            favoriteButton.image = UIImage(named: "favorite-set-icon")
+        }
+        
         navigationItem.rightBarButtonItems = [favoriteButton]
     }
     
-    @objc func favoriteGame() {
-//        viewModel.favoriteGame()
+    @objc func favoriteGameFromDetail() {
+        if viewModel.favoriteGame(dto: detailDTO) {
+            favoriteButton.image = UIImage(named: "favorite-set-icon")
+        } else {
+            favoriteButton.image = UIImage(named: "favorite-notset-icon")
+        }
     }
     
     func fill(with dto: GameDetailDTO) {

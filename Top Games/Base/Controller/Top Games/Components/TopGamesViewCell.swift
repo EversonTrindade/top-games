@@ -44,7 +44,6 @@ class TopGamesViewCell: UICollectionViewCell {
         gameImg.image = image
         gameFavoriteBtn.setImage(UIImage(named: "favorite-set-icon"), for: .selected)
         gameFavoriteBtn.setImage(UIImage(named: "favorite-notset-icon"), for: .normal)
-
     }
     
     private func setFavoriteImage(favorite: Bool) {
@@ -65,7 +64,8 @@ class TopGamesViewCell: UICollectionViewCell {
     // MARK: IBAction
     @IBAction func favoriteGameAction(_ sender: UIButton) {
         delegate?.didFavorite(with: identifier,
-                              shouldFavorite: !gameFavoriteBtn.isSelected, imageData: prepareImageData(image: gameImg.image))
+                              shouldFavorite: !gameFavoriteBtn.isSelected,
+                              imageData: prepareImageData(image: gameImg.image))
         setFavoriteImage(favorite: !gameFavoriteBtn.isSelected)
     }
 }

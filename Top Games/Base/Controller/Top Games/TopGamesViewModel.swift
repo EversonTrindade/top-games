@@ -144,6 +144,13 @@ class TopGamesViewModel: TopGamesViewModelPresentable {
     func isFavorite(id: Int) -> Bool {
         return favorites.filter { $0.game?._id == id }.count > 0
     }
+    
+    private func prepareImageData(image: UIImage?) -> Data? {
+        guard let image = image, let imageData = UIImagePNGRepresentation(image) else {
+            return nil
+        }
+        return imageData
+    }
 }
 
 // MARK: UICollectionViewDTO
@@ -163,15 +170,16 @@ extension TopGamesViewModel {
                 return GameDTO()
             }
             return GameDTO(name: game.game?.name ?? "",
-                           image: getImage(urlString: game.game?.box?.medium ?? "", id: game.game?._id ?? 0),
-                           identifier: game.game?._id ?? 0, favorite: isFavorite(id: game.game?._id ?? 0))
+                           image: getImage(urlString: game.game?.box?.large ?? "", id: game.game?._id ?? 0),
+                           identifier: game.game?._id ?? 0,
+                           favorite: isFavorite(id: game.game?._id ?? 0))
 
         } else {
             guard let game = games.object(index: row) else {
                 return GameDTO()
             }
             return GameDTO(name: game.game?.name ?? "",
-                           image: getImage(urlString: game.game?.box?.medium ?? "", id: game.game?._id ?? 0),
+                           image: getImage(urlString: game.game?.box?.large ?? "", id: game.game?._id ?? 0),
                            identifier: game.game?._id ?? 0,
                            favorite: isFavorite(id: game.game?._id ?? 0))
 
@@ -185,14 +193,26 @@ extension TopGamesViewModel {
             }
             return GameDetailDTO(name: game.game?.name ?? "",
                                  large: game.game?.box?.large ?? "",
-                                 viewers: game.viewers ?? 0)
+                                 viewers: game.viewers ?? 0,
+                                 channels: game.channels ?? 0,
+                                 popularity: game.game?.popularity ?? 0,
+                                 id: game.game?._id ?? 0,
+                                 giantbomb_id: game.game?.giantbomb_id ?? 0,
+                                 imageData: prepareImageData(image: getImage(urlString: game.game?.box?.large ?? "", id: game.game?._id ?? 0)) ?? Data(),
+                                 medium: game.game?.box?.medium ?? "")
         } else {
             guard let game = games.object(index: row) else {
                 return GameDetailDTO()
             }
             return GameDetailDTO(name: game.game?.name ?? "",
                                  large: game.game?.box?.large ?? "",
-                                 viewers: game.viewers ?? 0)
+                                 viewers: game.viewers ?? 0,
+                                 channels: game.channels ?? 0,
+                                 popularity: game.game?.popularity ?? 0,
+                                 id: game.game?._id ?? 0,
+                                 giantbomb_id: game.game?.giantbomb_id ?? 0,
+                                 imageData: prepareImageData(image: getImage(urlString: game.game?.box?.large ?? "", id: game.game?._id ?? 0)) ?? Data(),
+                                 medium: game.game?.box?.medium ?? "")
         }
     }
     

@@ -32,6 +32,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tabBarController?.navigationItem.title = "Games"
+        reloaCollectionView()
     }
     
     // MARK: Prepare for segue
@@ -85,9 +86,7 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
         if let _ = error {
             showDefaultAlert(message: "Can not load games. Try later!", completeBlock: nil)
         } else {
-            DispatchQueue.main.async {
-                self.collectionView?.reloadData()
-            }
+           reloaCollectionView()
         }
         DispatchQueue.main.async {
             self.refresher.endRefreshing()
@@ -104,6 +103,12 @@ class TopGamesViewController: UIViewController, LoadContent, GameCellDelegate {
                     gameCell.setImage(with: self.viewModel.imageFromCache(identifier: identifier))
                 }
             }
+        }
+    }
+    
+    func reloaCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
     

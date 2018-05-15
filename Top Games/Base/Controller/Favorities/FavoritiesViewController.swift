@@ -43,7 +43,7 @@ class FavoritiesViewController: UIViewController, FavoritiesLoadContent {
         viewModel.getFavoritiesGames()
     }
     
-    func didLoadContent(gamesCount: Int) {
+    func didLoadContent() {
         dismissLoader()
         DispatchQueue.main.async {
             self.tableView.reloadData()
